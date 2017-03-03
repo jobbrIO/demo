@@ -3,6 +3,7 @@ using Jobbr.ComponentModel.JobStorage;
 using Jobbr.Server;
 using Jobbr.Server.Builder;
 using Jobbr.Server.ForkedExecution;
+using Jobbr.Server.JobRegistry;
 using Jobbr.Server.MsSql;
 
 namespace Demo.JobServer
@@ -16,10 +17,16 @@ namespace Demo.JobServer
                 {
                     config.JobRunDirectory = "C:/temp";
                     config.BackendAddress = "http://localhost:1337/jobbr";
-                    config.JobRunnerExeResolver = () => "bla.exe";
+                    config.JobRunnerExeResolver = () => "../../../Demo.JobRunner/bin/Debug/Demo.JobRunner.exe";
                     config.MaxConcurrentJobs = 1;
                 }
             );
+
+            jobbrBuilder.AddJobs(repo =>
+            {
+                repo.Define("ProgressJob", "Demo.MyJobs.ProgressJob")
+                    .WithTrigger("* * * * *");
+            });
 
             // Uncomment to use sql server as storage
 
