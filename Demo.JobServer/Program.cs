@@ -1,31 +1,41 @@
 ﻿using System;
-
+using Jobbr.ComponentModel.JobStorage;
 using Jobbr.Server;
+using Jobbr.Server.Builder;
+using Jobbr.Server.ForkedExecution;
+using Jobbr.Server.MsSql;
 
 namespace Demo.JobServer
 {
-    /// <summary>
-    /// The program.
-    /// </summary>
     public class Program
     {
-        /// <summary>
-        /// The main.
-        /// </summary>
-        /// <param name="args">
-        /// The args.
-        /// </param>
         public static void Main(string[] args)
         {
-            var config = new MyJobbrConfiguration();
+            var jobbrBuilder = new JobbrBuilder();
+            jobbrBuilder.AddForkedExecution(config =>
+                {
+                    config.JobRunDirectory = "C:/temp";
+                    config.BackendAddress = "http://localhost:1337/jobbr";
+                    config.JobRunnerExeResolver = () => "bla.exe";
+                    config.MaxConcurrentJobs = 1;
+                }
+            );
 
-            using (var jobbrServer = new JobbrServer(config))
+            // Uncomment to use sql server as storage
+
+            //jobbrBuilder.AddMsSqlStorage(c =>
+            //{
+            //    c.ConnectionString = "connectionstring";
+            //    c.Schema = "Jobbr";
+            //});
+
+            using (var server = jobbrBuilder.Create())
             {
-                jobbrServer.Start();
-
+                server.Start();
+                
                 Console.ReadLine();
 
-                jobbrServer.Stop();
+                server.Stop();
             }
         }
     }

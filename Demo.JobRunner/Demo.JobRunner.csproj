@@ -33,8 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ninject">
-      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    <Reference Include="Jobbr.Runtime.Console, Version=1.9.71.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Jobbr.Runtime.Console.1.0.0-unstable1\lib\net45\Jobbr.Runtime.Console.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -51,24 +52,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\source\Jobbr.Runtime\Jobbr.Runtime.csproj">
-      <Project>{fc503f89-61b7-4e2f-a950-6da216c830e1}</Project>
-      <Name>Jobbr.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\source\Jobbr.Shared\Jobbr.Shared.csproj">
-      <Project>{4C7FF32D-8514-4D17-B21C-3EF69968AB1F}</Project>
-      <Name>Jobbr.Shared</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Demo.Common\Demo.Common.csproj">
-      <Project>{50B5724F-5B72-4932-87A6-0890A612642C}</Project>
-      <Name>Demo.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Demo.MyJobs\Demo.MyJobs.csproj">
-      <Project>{f1c2e1e1-815d-4d07-91a2-fd8bee8c4240}</Project>
-      <Name>Demo.MyJobs</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

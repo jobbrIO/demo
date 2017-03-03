@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Linq;
-
 using Jobbr.Client;
-using Jobbr.Common.Model;
+using Jobbr.WebAPI.Common.Models;
 
 namespace Demo.Client
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            var jobbrClient = new JobbrClient("http://localhost:80/jobbr");
+            var jobbrClient = new JobbrClient("http://localhost:1337/jobbr");
 
             var allJobs = jobbrClient.GetAllJobs();
 
@@ -39,7 +38,6 @@ namespace Demo.Client
             Console.WriteLine("Disabled FutureTrigger width Id:" + trigger.Id + ", IsActive: " + dectivatedTrigger.IsActive);
 
             Console.ReadLine();
-
         }
     }
 }

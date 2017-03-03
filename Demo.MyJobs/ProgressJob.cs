@@ -7,7 +7,7 @@ namespace Demo.MyJobs
     {
         public void Run()
         {
-            var iterations = 15;
+            const int iterations = 15;
 
             for (var i = 0; i < iterations; i++)
             {
