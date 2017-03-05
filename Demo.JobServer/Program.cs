@@ -16,7 +16,6 @@ namespace Demo.JobServer
             jobbrBuilder.AddForkedExecution(config =>
                 {
                     config.JobRunDirectory = "C:/temp";
-                    config.BackendAddress = "http://localhost:1337/jobbr";
                     config.JobRunnerExeResolver = () => "../../../Demo.JobRunner/bin/Debug/Demo.JobRunner.exe";
                     config.MaxConcurrentJobs = 1;
                 }
