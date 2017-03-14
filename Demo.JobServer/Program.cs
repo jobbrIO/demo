@@ -18,6 +18,7 @@ namespace Demo.JobServer
                     config.JobRunDirectory = "C:/temp";
                     config.JobRunnerExeResolver = () => "../../../Demo.JobRunner/bin/Debug/Demo.JobRunner.exe";
                     config.MaxConcurrentJobs = 1;
+                    config.IsRuntimeWaitingForDebugger = true;
                 }
             );
 
