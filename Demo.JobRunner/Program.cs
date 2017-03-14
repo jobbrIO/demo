@@ -1,5 +1,6 @@
-﻿using System.Reflection;
+﻿using System;
 using System.Diagnostics;
+using Demo.MyJobs;
 using Jobbr.ConsoleApp.Runtime.Logging;
 using Jobbr.Runtime.Console;
 
@@ -9,10 +10,16 @@ namespace Demo.JobRunner
     {
         public static void Main(string[] args)
         {
-            var runtime = new JobbrRuntime(Assembly.GetEntryAssembly());
             // Redirect Log-Output to Trace, remove this if you install any other Log-Framework 
             LogProvider.SetCurrentLogProvider(new TraceLogProvider());
 
+            // Make sure the compiler does not remove the binding to this assembly
+            var jobAssemblyToQueryJobs = typeof(ProgressJob).Assembly;
+
+            // Set the default assembly to query for jobtypes
+            var runtime = new JobbrRuntime(jobAssemblyToQueryJobs);
+
+            // Pass the arguments of the forked execution to the runtime
             runtime.Run(args);
         }
     }
