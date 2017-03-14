@@ -9,7 +9,7 @@ namespace Demo.Client
     {
         public static void Main(string[] args)
         {
-            var jobbrClient = new JobbrClient("http://localhost:1337/jobbr");
+            var jobbrClient = new JobbrClient("http://localhost:1337");
 
             var allJobs = jobbrClient.GetAllJobs();
 

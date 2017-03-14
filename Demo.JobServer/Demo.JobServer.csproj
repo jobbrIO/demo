@@ -67,6 +67,9 @@
       <HintPath>..\packages\Jobbr.Server.MsSql.1.0.0-unstable17\lib\net45\Jobbr.Server.MsSql.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Jobbr.Server.WebAPI">
+      <HintPath>..\packages\Jobbr.Server.WebAPI.1.0.0-unstable56\lib\net45\Jobbr.Server.WebAPI.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Owin.Host.HttpListener">
       <HintPath>..\packages\Microsoft.Owin.Host.HttpListener.3.0.1\lib\net45\Microsoft.Owin.Host.HttpListener.dll</HintPath>
     </Reference>

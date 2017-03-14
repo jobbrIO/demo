@@ -5,6 +5,7 @@ using Jobbr.Server.Builder;
 using Jobbr.Server.ForkedExecution;
 using Jobbr.Server.JobRegistry;
 using Jobbr.Server.MsSql;
+using Jobbr.Server.WebAPI;
 
 namespace Demo.JobServer
 {
@@ -13,6 +14,7 @@ namespace Demo.JobServer
         public static void Main(string[] args)
         {
             var jobbrBuilder = new JobbrBuilder();
+
             jobbrBuilder.AddForkedExecution(config =>
                 {
                     config.JobRunDirectory = "C:/temp";
@@ -26,6 +28,11 @@ namespace Demo.JobServer
             {
                 repo.Define("ProgressJob", "Demo.MyJobs.ProgressJob")
                     .WithTrigger("* * * * *");
+            });
+
+            jobbrBuilder.AddWebApi(config =>
+            {
+                config.BackendAddress = "http://localhost:1337";
             });
 
             // Uncomment to use sql server as storage
