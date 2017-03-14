@@ -57,8 +57,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Jobbr.Server, Version=5.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.Server.1.0.0-unstable456\lib\net45\Jobbr.Server.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\Jobbr.Server.1.0.0-unstable457\lib\net45\Jobbr.Server.dll</HintPath>
     </Reference>
     <Reference Include="Jobbr.Server.ForkedExecution, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Jobbr.Execution.Forked.1.0.0-unstable2\lib\net45\Jobbr.Server.ForkedExecution.dll</HintPath>
