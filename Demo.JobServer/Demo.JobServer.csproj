@@ -41,7 +41,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Jobbr.ComponentModel.Execution, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.ComponentModel.Execution.1.0.0-unstable19\lib\net45\Jobbr.ComponentModel.Execution.dll</HintPath>
+      <HintPath>..\packages\Jobbr.ComponentModel.Execution.1.0.0-unstable20\lib\net45\Jobbr.ComponentModel.Execution.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Jobbr.ComponentModel.JobStorage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -57,11 +57,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Jobbr.Server, Version=5.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.Server.1.0.0-unstable454\lib\net45\Jobbr.Server.dll</HintPath>
+      <HintPath>..\packages\Jobbr.Server.1.0.0-unstable456\lib\net45\Jobbr.Server.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Jobbr.Server.ForkedExecution, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.Execution.Forked.1.0.0-unstable1\lib\net45\Jobbr.Server.ForkedExecution.dll</HintPath>
+      <HintPath>..\packages\Jobbr.Execution.Forked.1.0.0-unstable2\lib\net45\Jobbr.Server.ForkedExecution.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Jobbr.Server.MsSql, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">

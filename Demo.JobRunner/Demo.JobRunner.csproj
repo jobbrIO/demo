@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Jobbr.Runtime.Console, Version=1.9.71.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.Runtime.Console.1.0.0-unstable1\lib\net45\Jobbr.Runtime.Console.dll</HintPath>
+      <HintPath>..\packages\Jobbr.Runtime.Console.1.0.0-unstable2\lib\net45\Jobbr.Runtime.Console.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
