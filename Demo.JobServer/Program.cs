@@ -57,7 +57,7 @@ namespace Demo.JobServer
 
                 // Trigger a new Job from here. How-ever this does not make sense usually... 
                 // Better approach would be to use the Client Libraries to access the WebAPI
-                MyExtension.Instance.JobManagementService.AddTrigger(new InstantTrigger() { JobId = 1, IsActive = true });
+                // MyExtension.Instance.JobManagementService.AddTrigger(new InstantTrigger() { JobId = 1, IsActive = true });
 
                 Console.ReadLine();
 
