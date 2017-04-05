@@ -59,10 +59,10 @@
       <HintPath>..\packages\Jobbr.Execution.Forked.1.0.0-unstable3\lib\net45\Jobbr.Server.ForkedExecution.dll</HintPath>
     </Reference>
     <Reference Include="Jobbr.Server.MsSql, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.Server.MsSql.1.0.0-unstable20\lib\net45\Jobbr.Server.MsSql.dll</HintPath>
+      <HintPath>..\packages\Jobbr.Server.MsSql.1.0.0-unstable23\lib\net45\Jobbr.Server.MsSql.dll</HintPath>
     </Reference>
     <Reference Include="Jobbr.Server.RavenDB, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.Server.RavenDB.1.0.0-unstable1\lib\net45\Jobbr.Server.RavenDB.dll</HintPath>
+      <HintPath>..\packages\Jobbr.Server.RavenDB.1.0.0-unstable3\lib\net45\Jobbr.Server.RavenDB.dll</HintPath>
     </Reference>
     <Reference Include="Jobbr.Server.WebAPI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Jobbr.Server.WebAPI.1.0.0-unstable60\lib\net45\Jobbr.Server.WebAPI.dll</HintPath>

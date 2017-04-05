@@ -50,11 +50,12 @@ namespace Demo.JobServer
             // Uncomment to use sql server as storage
             //jobbrBuilder.AddMsSqlStorage(c =>
             //{
-            //    c.ConnectionString = "connectionstring";
+            //    c.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\temp\jobbr.mdf;Integrated Security=True;Connect Timeout=30";
             //    c.Schema = "Jobbr";
             //});
 
             // Uncomment to use RavenDB as storage
+            // (start a ravendb server by executing packages\RavenDB.Server.3.5.3\tools\RavenDB.Server.exe)
             //jobbrBuilder.AddRavenDbStorage(config =>
             //{
             //    config.Url = "http://localhost:8080";
