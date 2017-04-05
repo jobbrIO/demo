@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Policy;
 using Jobbr.ComponentModel.Management;
 using Jobbr.ComponentModel.Management.Model;
 using Jobbr.ComponentModel.Registration;
@@ -7,6 +8,7 @@ using Jobbr.Server.Builder;
 using Jobbr.Server.ForkedExecution;
 using Jobbr.Server.JobRegistry;
 using Jobbr.Server.MsSql;
+using Jobbr.Server.RavenDB;
 using Jobbr.Server.WebAPI;
 
 namespace Demo.JobServer
@@ -35,17 +37,28 @@ namespace Demo.JobServer
                     .WithTrigger("* * * * *");
             });
 
-            // Expose a simple Rest-API that is compatible with any browser and the Jobbr.Client
+            // Expose a Rest-API that is compatible with any browser and the Jobbr.Client
             jobbrBuilder.AddWebApi(config =>
             {
                 config.BackendAddress = "http://localhost:1337";
             });
+
+            // Choose one of the following two storage providers (MsSQL or RavenDB). The Jobbr server will use
+            // its own in memory storage provider, if none of the two is configured. The in memory storage provider should only
+            // be used for unit testing or getting started with Jobbr.
 
             // Uncomment to use sql server as storage
             //jobbrBuilder.AddMsSqlStorage(c =>
             //{
             //    c.ConnectionString = "connectionstring";
             //    c.Schema = "Jobbr";
+            //});
+
+            // Uncomment to use RavenDB as storage
+            //jobbrBuilder.AddRavenDbStorage(config =>
+            //{
+            //    config.Url = "http://localhost:8080";
+            //    config.Database = "Jobbr";
             //});
 
             // Register your very own component that gets as JobbrComponent and can request specific implementations with constructor injection
