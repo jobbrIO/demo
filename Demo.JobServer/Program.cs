@@ -23,8 +23,8 @@ namespace Demo.JobServer
             jobbrBuilder.AddForkedExecution(config =>
                 {
                     config.JobRunDirectory = "C:/temp";
-                    config.JobRunnerExeResolver = () => "../../../Demo.JobRunner/bin/Debug/Demo.JobRunner.exe";
-                    config.MaxConcurrentJobs = 1;
+                    config.JobRunnerExecutable = "../../../Demo.JobRunner/bin/Debug/Demo.JobRunner.exe";
+                    config.MaxConcurrentProcesses = 1;
                     config.IsRuntimeWaitingForDebugger = true;
                 }
             );

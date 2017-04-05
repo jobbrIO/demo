@@ -56,8 +56,7 @@
       <HintPath>..\packages\Jobbr.Server.1.0.0-unstable467\lib\net45\Jobbr.Server.dll</HintPath>
     </Reference>
     <Reference Include="Jobbr.Server.ForkedExecution, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.Execution.Forked.1.0.0-unstable2\lib\net45\Jobbr.Server.ForkedExecution.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\Jobbr.Execution.Forked.1.0.0-unstable3\lib\net45\Jobbr.Server.ForkedExecution.dll</HintPath>
     </Reference>
     <Reference Include="Jobbr.Server.MsSql, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Jobbr.Server.MsSql.1.0.0-unstable20\lib\net45\Jobbr.Server.MsSql.dll</HintPath>
@@ -66,7 +65,7 @@
       <HintPath>..\packages\Jobbr.Server.RavenDB.1.0.0-unstable1\lib\net45\Jobbr.Server.RavenDB.dll</HintPath>
     </Reference>
     <Reference Include="Jobbr.Server.WebAPI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.Server.WebAPI.1.0.0-unstable57\lib\net45\Jobbr.Server.WebAPI.dll</HintPath>
+      <HintPath>..\packages\Jobbr.Server.WebAPI.1.0.0-unstable60\lib\net45\Jobbr.Server.WebAPI.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Host.HttpListener, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Host.HttpListener.3.0.1\lib\net45\Microsoft.Owin.Host.HttpListener.dll</HintPath>
