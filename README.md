@@ -47,7 +47,7 @@ jobbrBuilder.AddJobs(repo =>
 });
 ```
 ## JobRunner
-In order to run jobs create a Console application project JobRunner which compiles into the JobRunner.exe configured in the ForkedExecution configuration above.
+In order to run jobs create a Console application project JobRunner which compiles into the JobRunner.exe executable configured in the ForkedExecution configuration above.
 
 ```
 Install-Package Jobbr.Runtime.Console
@@ -84,9 +84,9 @@ namespace JobRunnerSample
 Note that there is no reference to the jobserver project from the jobrunner or vice versa. Only the runtime (JobRunner.exe) knows how to instantiate job classes. All the information the runtime needs to execute the jobs are passed via args.
 
 ## Storage
-If no JobStorageProvider is configured, jobs/triggers/jobruns are persisted in memory and lost when the server is restarted. In memory storage is only suitable for testing and getting started with jobbr. Choose one of the available storage providers to persist the data:
+If no `IJobStorageProvider` is configured, jobs/triggers/jobruns are persisted in memory and lost when the server is restarted. In memory storage is only suitable for testing and getting started with jobbr. Choose one of the available storage providers to persist the data:
 
-### Use MsSQL as storage
+### MsSQL as storage
 ```
 Install-Package Jobbr.Server.MsSql
 ```
@@ -101,7 +101,7 @@ jobbrBuilder.AddMsSqlStorage(c =>
 ```
 Source code: [JobbrIO/jobbr-server-mssql](https://github.com/jobbrIO/jobbr-storage-mssql)
 
-### Use RavenDB as storage
+### RavenDB as storage
 ```
 Install-Package Jobbr.Server.RavenDB
 ```
@@ -115,7 +115,7 @@ jobbrBuilder.AddRavenDbStorage(config =>
 Source code: [JobbrIO/jobbr-server-ravendb](https://github.com/jobbrIO/jobbr-storage-ravendb)
 
 ## Artefacts
-Artefacts are files which jobs write to their working directory during execution. These files are collected when the job finished and persisted by the jobbr server. Like the JobStorageProvider if you don't configure an ArtefactStorageProvider, these artefacts are only persisted to memory and lost after restart. To persist them choose one of the following artefact storage providers:
+Artefacts are files which jobs write to their working directory during execution. These files are collected when the job finished and persisted by the jobbr server. Like the `JobStorageProvider` if you don't configure an `IArtefactStorageProvider`, these artefacts are only persisted to memory and lost after restart. To persist them choose one of the following artefact storage providers:
 
 - [JobbrIO/jobbr-artefactstorage-filesystem](https://github.com/jobbrIO/jobbr-artefactstorage-filesystem)
 - [JobbrIO/jobbr-artefactstorage-ravenfs](https://github.com/jobbrIO/jobbr-artefactstorage-ravenfs)
@@ -135,7 +135,7 @@ builder.AddWebApi(config =>
 ```
 
 ### Client
-Use the typed [Client](https://www.nuget.org/packages/Jobbr.Client) to access the WebAPI
+Use the typed [Client](https://www.nuget.org/packages/Jobbr.Client) to access the WebAPI:
 
 ```c#
 var jobbrClient = new JobbrClient("http://localhost:1337/jobbr");
