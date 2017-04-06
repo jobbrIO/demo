@@ -86,7 +86,7 @@ Note that there is no reference to the jobserver project from the jobrunner or v
 ## Storage
 If no `IJobStorageProvider` is configured, jobs/triggers/jobruns are persisted in memory and lost when the server is restarted. In memory storage is only suitable for testing and getting started with jobbr. Choose one of the available storage providers to persist the data:
 
-### MsSQL as storage
+### MsSQL storage
 ```
 Install-Package Jobbr.Server.MsSql
 ```
@@ -101,7 +101,7 @@ jobbrBuilder.AddMsSqlStorage(c =>
 ```
 Source code: [JobbrIO/jobbr-server-mssql](https://github.com/jobbrIO/jobbr-storage-mssql)
 
-### RavenDB as storage
+### RavenDB storage
 ```
 Install-Package Jobbr.Server.RavenDB
 ```
