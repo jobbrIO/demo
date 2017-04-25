@@ -37,39 +37,47 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Jobbr.ComponentModel.ArtefactStorage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.ComponentModel.ArtefactStorage.1.0.0-rc2\lib\net45\Jobbr.ComponentModel.ArtefactStorage.dll</HintPath>
+      <HintPath>..\packages\Jobbr.ComponentModel.ArtefactStorage.1.0.0-rc4\lib\net45\Jobbr.ComponentModel.ArtefactStorage.dll</HintPath>
     </Reference>
     <Reference Include="Jobbr.ComponentModel.Execution, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.ComponentModel.Execution.1.0.0-unstable20\lib\net45\Jobbr.ComponentModel.Execution.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\Jobbr.ComponentModel.Execution.1.0.0-unstable22\lib\net45\Jobbr.ComponentModel.Execution.dll</HintPath>
     </Reference>
     <Reference Include="Jobbr.ComponentModel.JobStorage, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.ComponentModel.JobStorage.1.0.0-rc6\lib\net45\Jobbr.ComponentModel.JobStorage.dll</HintPath>
+      <HintPath>..\packages\Jobbr.ComponentModel.JobStorage.1.0.0-rc13\lib\net45\Jobbr.ComponentModel.JobStorage.dll</HintPath>
     </Reference>
     <Reference Include="Jobbr.ComponentModel.Management, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.ComponentModel.Management.1.0.0-rc4\lib\net45\Jobbr.ComponentModel.Management.dll</HintPath>
+      <HintPath>..\packages\Jobbr.ComponentModel.Management.1.0.0-rc8\lib\net45\Jobbr.ComponentModel.Management.dll</HintPath>
     </Reference>
     <Reference Include="Jobbr.ComponentModel.Registration, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Jobbr.ComponentModel.Registration.1.0.0-rc1\lib\net45\Jobbr.ComponentModel.Registration.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Jobbr.Server, Version=5.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.Server.1.0.0-unstable461\lib\net45\Jobbr.Server.dll</HintPath>
+    <Reference Include="Jobbr.Server, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Jobbr.Server.1.0.0-unstable467\lib\net45\Jobbr.Server.dll</HintPath>
     </Reference>
     <Reference Include="Jobbr.Server.ForkedExecution, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.Execution.Forked.1.0.0-unstable2\lib\net45\Jobbr.Server.ForkedExecution.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\Jobbr.Execution.Forked.1.0.0-unstable3\lib\net45\Jobbr.Server.ForkedExecution.dll</HintPath>
     </Reference>
     <Reference Include="Jobbr.Server.MsSql, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.Server.MsSql.1.0.0-unstable20\lib\net45\Jobbr.Server.MsSql.dll</HintPath>
+      <HintPath>..\packages\Jobbr.Server.MsSql.1.0.0-unstable23\lib\net45\Jobbr.Server.MsSql.dll</HintPath>
+    </Reference>
+    <Reference Include="Jobbr.Server.RavenDB, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Jobbr.Server.RavenDB.1.0.0-unstable3\lib\net45\Jobbr.Server.RavenDB.dll</HintPath>
     </Reference>
     <Reference Include="Jobbr.Server.WebAPI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.Server.WebAPI.1.0.0-unstable57\lib\net45\Jobbr.Server.WebAPI.dll</HintPath>
+      <HintPath>..\packages\Jobbr.Server.WebAPI.1.0.0-unstable60\lib\net45\Jobbr.Server.WebAPI.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Host.HttpListener, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Host.HttpListener.3.0.1\lib\net45\Microsoft.Owin.Host.HttpListener.dll</HintPath>
     </Reference>
+    <Reference Include="Raven.Abstractions, Version=3.5.3.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
+      <HintPath>..\packages\RavenDB.Client.3.5.3\lib\net45\Raven.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.Lightweight, Version=3.5.3.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
+      <HintPath>..\packages\RavenDB.Client.3.5.3\lib\net45\Raven.Client.Lightweight.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
