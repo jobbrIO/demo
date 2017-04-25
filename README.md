@@ -50,7 +50,7 @@ jobbrBuilder.AddJobs(repo =>
 In order to run jobs create a Console application project JobRunner which compiles into the JobRunner.exe executable configured in the ForkedExecution configuration above.
 
 ```
-Install-Package Jobbr.Runtime.Console
+Install-Package Jobbr.Runtime.ForkedExecution
 ```
 
 ```c#
@@ -62,7 +62,9 @@ namespace JobRunnerSample
         {
             // start the jobbr runtime and tell it where to find
             // the defined job types.
-            var runtime = new JobbrRuntime(typeof(Program).Assembly);
+            var runtime = new ForkedRuntime(
+                new RuntimeConfiguration { JobTypeSearchAssembly = typeof(Program).Assembly) }
+            );
 
             // Pass the arguments of the forked execution to
             // the runtime which executes the Run method of 
