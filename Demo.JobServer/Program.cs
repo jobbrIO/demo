@@ -44,7 +44,7 @@ namespace Demo.JobServer
             // Uncomment to use sql server as storage
             //jobbrBuilder.AddMsSqlStorage(c =>
             //{
-            //    c.ConnectionString = "connectionstring";
+            //    c.ConnectionString = @"Server=.\SQLEXPRESS.;Database=JobbrDemo;Trusted_Connection=True;";
             //    c.Schema = "Jobbr";
             //});
 
