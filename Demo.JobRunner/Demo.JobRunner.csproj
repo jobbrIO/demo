@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Jobbr.Runtime.ForkedExecution, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.Runtime.ForkedExecution.1.0.0-unstable5\lib\net45\Jobbr.Runtime.ForkedExecution.dll</HintPath>
+      <HintPath>..\packages\Jobbr.Runtime.ForkedExecution.1.0.0-unstable6\lib\net45\Jobbr.Runtime.ForkedExecution.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

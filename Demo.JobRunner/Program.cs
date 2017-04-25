@@ -3,8 +3,7 @@ using System.Diagnostics;
 using Demo.MyJobs;
 using Jobbr.Runtime.Core;
 using Jobbr.Runtime.ForkedExecution;
-using CoreLogging = Jobbr.Runtime.Core.Logging;
-using ForkedLogging = Jobbr.Runtime.ForkedExecution.Logging;
+using Jobbr.Runtime.Logging;
 
 namespace Demo.JobRunner
 {
@@ -13,8 +12,7 @@ namespace Demo.JobRunner
         public static void Main(string[] args)
         {
             // Redirect Log-Output to Trace, remove this if you install any other Log-Framework 
-            //ForkedLogging.LogProvider.SetCurrentLogProvider(new TraceLogProvider());
-            CoreLogging.LogProvider.SetCurrentLogProvider(new TraceLogProvider());
+            LogProvider.SetCurrentLogProvider(new TraceLogProvider());
 
             // Make sure the compiler does not remove the binding to this assembly
             var jobAssemblyToQueryJobs = typeof(ProgressJob).Assembly;
@@ -27,17 +25,12 @@ namespace Demo.JobRunner
         }
     }
 
-    public class TraceLogProvider : CoreLogging.ILogProvider //, ForkedLogging.ILogProvider
+    public class TraceLogProvider : ILogProvider //, ForkedLogging.ILogProvider
     {
-        public CoreLogging.ILog GetLogger(string name)
+        public ILog GetLogger(string name)
         {
-            return (CoreLogging.ILog)new TraceLogger(name);
+            return new TraceLogger(name);
         }
-
-        //public ForkedLogging.ILog ForkedLogging.GetLogger(string name)
-        //{
-        //    return (ForkedLogging.ILog)new TraceLogger(name);
-        //}
 
         public IDisposable OpenNestedContext(string message)
         {
@@ -50,7 +43,7 @@ namespace Demo.JobRunner
         }
     }
 
-    public class TraceLogger : CoreLogging.ILog
+    public class TraceLogger : ILog
     {
         private readonly string _name;
 
@@ -59,7 +52,7 @@ namespace Demo.JobRunner
             _name = name;
         }
 
-        public bool Log(CoreLogging.LogLevel logLevel, Func<string> messageFunc, Exception exception = null, params object[] formatParameters)
+        public bool Log(LogLevel logLevel, Func<string> messageFunc, Exception exception = null, params object[] formatParameters)
         {
             if (messageFunc == null)
             {
