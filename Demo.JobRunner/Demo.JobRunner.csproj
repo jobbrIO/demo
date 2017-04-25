@@ -33,9 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Jobbr.Runtime.Console, Version=1.9.71.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.Runtime.Console.1.0.0-unstable2\lib\net45\Jobbr.Runtime.Console.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Jobbr.Runtime.ForkedExecution, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Jobbr.Runtime.ForkedExecution.1.0.0-unstable5\lib\net45\Jobbr.Runtime.ForkedExecution.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

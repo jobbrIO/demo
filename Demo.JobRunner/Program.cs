@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
 using Demo.MyJobs;
-using Jobbr.ConsoleApp.Runtime.Logging;
-using Jobbr.Runtime.Console;
+using Jobbr.Runtime.Core;
+using Jobbr.Runtime.ForkedExecution;
+using CoreLogging = Jobbr.Runtime.Core.Logging;
+using ForkedLogging = Jobbr.Runtime.ForkedExecution.Logging;
 
 namespace Demo.JobRunner
 {
@@ -11,25 +13,31 @@ namespace Demo.JobRunner
         public static void Main(string[] args)
         {
             // Redirect Log-Output to Trace, remove this if you install any other Log-Framework 
-            LogProvider.SetCurrentLogProvider(new TraceLogProvider());
+            //ForkedLogging.LogProvider.SetCurrentLogProvider(new TraceLogProvider());
+            CoreLogging.LogProvider.SetCurrentLogProvider(new TraceLogProvider());
 
             // Make sure the compiler does not remove the binding to this assembly
             var jobAssemblyToQueryJobs = typeof(ProgressJob).Assembly;
 
             // Set the default assembly to query for jobtypes
-            var runtime = new JobbrRuntime(jobAssemblyToQueryJobs);
+            var runtime = new ForkedRuntime(new RuntimeConfiguration { JobTypeSearchAssembly = jobAssemblyToQueryJobs });
 
             // Pass the arguments of the forked execution to the runtime
             runtime.Run(args);
         }
     }
 
-    public class TraceLogProvider : ILogProvider
+    public class TraceLogProvider : CoreLogging.ILogProvider //, ForkedLogging.ILogProvider
     {
-        public ILog GetLogger(string name)
+        public CoreLogging.ILog GetLogger(string name)
         {
-            return new TraceLogger(name);
+            return (CoreLogging.ILog)new TraceLogger(name);
         }
+
+        //public ForkedLogging.ILog ForkedLogging.GetLogger(string name)
+        //{
+        //    return (ForkedLogging.ILog)new TraceLogger(name);
+        //}
 
         public IDisposable OpenNestedContext(string message)
         {
@@ -42,7 +50,7 @@ namespace Demo.JobRunner
         }
     }
 
-    public class TraceLogger : ILog
+    public class TraceLogger : CoreLogging.ILog
     {
         private readonly string _name;
 
@@ -51,7 +59,7 @@ namespace Demo.JobRunner
             _name = name;
         }
 
-        public bool Log(LogLevel logLevel, Func<string> messageFunc, Exception exception = null, params object[] formatParameters)
+        public bool Log(CoreLogging.LogLevel logLevel, Func<string> messageFunc, Exception exception = null, params object[] formatParameters)
         {
             if (messageFunc == null)
             {
