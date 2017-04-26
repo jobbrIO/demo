@@ -35,7 +35,7 @@ using (var server = jobbrBuilder.Create())
 }
 ```
 
-Jobs and triggers can be defined in code:
+Jobs and triggers can be defined in code, where as the "TestJob" can be considered as unique name of your job and the "JobRunnerSample.TestJob" is the full qualified name of the class-type that contains your Run()-Method as the entry point to your code:
 
 ```c#
 jobbrBuilder.AddJobs(repo =>
