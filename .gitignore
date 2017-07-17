@@ -183,3 +183,4 @@ UpgradeLog*.htm
 FakesAssemblies/
 
 source/ilmerged
+.vs/
