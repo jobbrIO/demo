@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Jobbr.Client;
-using Jobbr.WebAPI.Common.Models;
+using Jobbr.Server.WebAPI.Model;
 
 namespace Demo.Client
 {
