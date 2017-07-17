@@ -2,6 +2,8 @@
 This repository contains a sample setup of Jobbr to get you started.
 
 # Quick Start
+Clone this repo and run the solution. The following steps are already prepared in the demo solution.
+
 ## Jobbr Server
 Install Jobbr Server NuGet and the forked execution model.
 ```
