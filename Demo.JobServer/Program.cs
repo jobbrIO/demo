@@ -7,7 +7,7 @@ using Jobbr.Server;
 using Jobbr.Server.Builder;
 using Jobbr.Server.ForkedExecution;
 using Jobbr.Server.JobRegistry;
-using Jobbr.Server.MsSql;
+using Jobbr.Storage.MsSql;
 using Jobbr.Server.RavenDB;
 using Jobbr.Server.WebAPI;
 
