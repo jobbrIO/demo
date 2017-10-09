@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Security.Policy;
 using Jobbr.ComponentModel.Management;
-using Jobbr.ComponentModel.Management.Model;
 using Jobbr.ComponentModel.Registration;
-using Jobbr.Server;
 using Jobbr.Server.Builder;
 using Jobbr.Server.ForkedExecution;
 using Jobbr.Server.JobRegistry;
-using Jobbr.Storage.MsSql;
-using Jobbr.Server.RavenDB;
 using Jobbr.Server.WebAPI;
+using Jobbr.Storage.MsSql;
+using Jobbr.Storage.RavenDB;
 
 namespace Demo.JobServer
 {

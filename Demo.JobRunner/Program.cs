@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using Demo.MyJobs;
-using Jobbr.Runtime.Core;
+using Jobbr.Runtime;
 using Jobbr.Runtime.ForkedExecution;
 using Jobbr.Runtime.Logging;
 
