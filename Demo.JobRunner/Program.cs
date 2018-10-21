@@ -18,7 +18,7 @@ namespace Demo.JobRunner
             var jobAssemblyToQueryJobs = typeof(ProgressJob).Assembly;
 
             // Set the default assembly to query for jobtypes
-            var runtime = new ForkedRuntime(new RuntimeConfiguration { JobTypeSearchAssembly = jobAssemblyToQueryJobs });
+            var runtime = new ForkedRuntime(new RuntimeConfiguration { JobTypeSearchAssemblies = new[] { jobAssemblyToQueryJobs } });
 
             // Pass the arguments of the forked execution to the runtime
             runtime.Run(args);
