@@ -40,9 +40,9 @@ namespace Demo.Client
             Console.WriteLine("Got FutureTrigger by Id:" + trigger.Id + ", IsActive: " + createdTrigger.IsActive);
 
             var disableTriggerInfo = new ScheduledTriggerDto() { Id = futureTrigger.Id, IsActive = false };
-            var dectivatedTrigger = jobbrClient.UpdateTrigger(jobId, disableTriggerInfo);
+            var deactivatedTrigger = jobbrClient.UpdateTrigger(jobId, disableTriggerInfo);
 
-            Console.WriteLine("Disabled FutureTrigger width Id:" + trigger.Id + ", IsActive: " + dectivatedTrigger.IsActive);
+            Console.WriteLine("Disabled FutureTrigger width Id:" + trigger.Id + ", IsActive: " + deactivatedTrigger.IsActive);
 
             Console.WriteLine("Press enter to quit...");
             Console.ReadLine();

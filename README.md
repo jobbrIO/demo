@@ -1,10 +1,20 @@
-# Jobbr Demo [![AppVeyor branch](https://img.shields.io/appveyor/ci/jobbr/jobbr-demo/develop.svg)]()
+# Jobbr Demo
+
+[![AppVeyor branch](https://img.shields.io/appveyor/ci/jobbr/jobbr-demo/develop.svg)]()
+
 This repository contains a sample setup of Jobbr to get you started.
 
 # Quick Start
-Clone this repo and run the solution. The following steps are already prepared in the demo solution.
+
+- Clone this repo
+- Create the necessary database tables with the [CreateTables.sql](https://github.com/jobbrIO/jobbr-storage-mssql/blob/master/source/Jobbr.Storage.MsSql/CreateTables.sql) script
+- Double check the SQL Server connection is set correctly
+- Build & run Demo.JobServer
+
+The following steps are already prepared in the demo solution.
 
 ## Jobbr Server
+
 Install Jobbr Server NuGet and the forked execution model.
 ```
 Install-Package Jobbr.Server
@@ -37,7 +47,7 @@ using (var server = jobbrBuilder.Create())
 }
 ```
 
-Jobs and triggers can be defined in code, where as the "TestJob" can be considered as unique name of your job and the "JobRunnerSample.TestJob" is the full qualified name of the class-type that contains your Run()-Method as the entry point to your code:
+Jobs and triggers can be defined in code, where as the "TestJob" can be considered as unique name of your job and the "JobRunnerSample.TestJob" is the full qualified name of the class-type that contains your `Run()`-Method as the entry point to your code:
 
 ```c#
 jobbrBuilder.AddJobs(repo =>
@@ -48,7 +58,9 @@ jobbrBuilder.AddJobs(repo =>
         .WithTrigger("* * * * *"); /* run every minute */
 });
 ```
+
 ## JobRunner
+
 In order to run jobs create a Console application project JobRunner which compiles into the JobRunner.exe executable configured in the ForkedExecution configuration above.
 
 ```
@@ -85,17 +97,19 @@ namespace JobRunnerSample
 }
 ```
 
-Note that there is no reference to the jobserver project from the jobrunner or vice versa. Only the runtime (JobRunner.exe) knows how to instantiate job classes. All the information the runtime needs to execute the jobs are passed via args.
+Note that there is no reference to the job server project from the JobRunner or vice versa. Only the runtime (JobRunner.exe) knows how to instantiate job classes. All the information the runtime needs to execute the jobs are passed via args.
 
 ## Storage
-If no `IJobStorageProvider` is configured, jobs/triggers/jobruns are persisted in memory and lost when the server is restarted. In memory storage is only suitable for testing and getting started with jobbr. Choose one of the available storage providers to persist the data:
+
+If no `IJobStorageProvider` is configured, jobs/triggers/jobruns are persisted in memory and lost when the server is restarted. In memory storage is only suitable for testing and getting started with Jobbr. Choose one of the available storage providers to persist the data:
 
 ### MsSQL storage
+
 ```
 Install-Package Jobbr.Server.MsSql
 ```
 
-configure jobbr to use MsSql storage before creating the server instance:
+configure Jobbr to use MsSql storage before creating the server instance:
 ```c#
 jobbrBuilder.AddMsSqlStorage(c =>
 {
@@ -106,6 +120,7 @@ jobbrBuilder.AddMsSqlStorage(c =>
 Source code: [JobbrIO/jobbr-server-mssql](https://github.com/jobbrIO/jobbr-storage-mssql)
 
 ### RavenDB storage
+
 ```
 Install-Package Jobbr.Server.RavenDB
 ```
@@ -119,13 +134,15 @@ jobbrBuilder.AddRavenDbStorage(config =>
 Source code: [JobbrIO/jobbr-server-ravendb](https://github.com/jobbrIO/jobbr-storage-ravendb)
 
 ## Artefacts
-Artefacts are files which jobs write to their working directory during execution. These files are collected when the job finished and persisted by the jobbr server. Like the `JobStorageProvider` if you don't configure an `IArtefactStorageProvider`, these artefacts are only persisted to memory and lost after restart. To persist them choose one of the following artefact storage providers:
+
+Artefacts are files which jobs write to their working directory during execution. These files are collected when the job finished and persisted by the Jobbr server. Like the `JobStorageProvider` if you don't configure an `IArtefactStorageProvider`, these artefacts are only persisted to memory and lost after restart. To persist them choose one of the following artefact storage providers:
 
 - [JobbrIO/jobbr-artefactstorage-filesystem](https://github.com/jobbrIO/jobbr-artefactstorage-filesystem)
 - [JobbrIO/jobbr-artefactstorage-ravenfs](https://github.com/jobbrIO/jobbr-artefactstorage-ravenfs)
 
 ## WebAPI
-To interact (eg creating new triggers) with jobbr server at runtime, add the [WebAPI](https://github.com/jobbrIO/jobbr-webapi) component to your server configuration. This component will expose a REST API to interact with the server at runtime.
+
+To interact (eg creating new triggers) with Jobbr server at runtime, add the [WebAPI](https://github.com/jobbrIO/jobbr-webapi) component to your server configuration. This component will expose a REST API to interact with the server at runtime.
 
 ```
 Install-Package Jobbr.Server.WebAPI
@@ -139,6 +156,7 @@ builder.AddWebApi(config =>
 ```
 
 ### Client
+
 Use the typed [Client](https://www.nuget.org/packages/Jobbr.Client) to access the WebAPI:
 
 ```c#
