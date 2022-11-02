@@ -1,11 +1,16 @@
-image: Visual Studio 2017
+image: Visual Studio 2019
 
 branches:
   only:
+    - master
     - develop
+    - /release/.*/
+    - /hostfix/.*/
+    - /feature/.*/
+    - /bugfix/.*/
 
 install:
-  - choco install gitversion.portable -pre -y
+  - choco install gitversion.portable --version 5.10.3 -y
 
 assembly_info:
   patch: false
