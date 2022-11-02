@@ -21,6 +21,9 @@ bld/
 # Roslyn cache directories
 *.ide/
 
+# Rider directories
+.idea/
+
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*

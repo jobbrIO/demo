@@ -9,9 +9,14 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Demo.JobServer</RootNamespace>
     <AssemblyName>Demo.JobServer</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,51 +41,13 @@
     <StartupObject>Demo.JobServer.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Jobbr.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.Client.1.0.0\lib\net45\Jobbr.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="Jobbr.ComponentModel.ArtefactStorage, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.ComponentModel.ArtefactStorage.1.0.1\lib\net462\Jobbr.ComponentModel.ArtefactStorage.dll</HintPath>
-    </Reference>
-    <Reference Include="Jobbr.ComponentModel.Execution, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.ComponentModel.Execution.1.0.1\lib\net462\Jobbr.ComponentModel.Execution.dll</HintPath>
-    </Reference>
-    <Reference Include="Jobbr.ComponentModel.JobStorage, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.ComponentModel.JobStorage.1.0.1\lib\net462\Jobbr.ComponentModel.JobStorage.dll</HintPath>
-    </Reference>
-    <Reference Include="Jobbr.ComponentModel.Management, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.ComponentModel.Management.1.0.1\lib\net462\Jobbr.ComponentModel.Management.dll</HintPath>
-    </Reference>
-    <Reference Include="Jobbr.ComponentModel.Registration, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.ComponentModel.Registration.1.0.1\lib\net462\Jobbr.ComponentModel.Registration.dll</HintPath>
-    </Reference>
-    <Reference Include="Jobbr.Server, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.Server.1.0.0\lib\net462\Jobbr.Server.dll</HintPath>
-    </Reference>
-    <Reference Include="Jobbr.Server.ForkedExecution, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.Execution.Forked.1.0.0\lib\net462\Jobbr.Server.ForkedExecution.dll</HintPath>
-    </Reference>
-    <Reference Include="Jobbr.Server.WebAPI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.Server.WebAPI.1.0.0\lib\net45\Jobbr.Server.WebAPI.dll</HintPath>
-    </Reference>
-    <Reference Include="Jobbr.Storage.MsSql, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.Storage.MsSql.1.0.0\lib\net462\Jobbr.Storage.MsSql.dll</HintPath>
-    </Reference>
-    <Reference Include="Jobbr.Storage.RavenDB, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Jobbr.Storage.RavenDB.1.0.0\lib\net462\Jobbr.Storage.RavenDB.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Host.HttpListener, Version=3.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Owin.Host.HttpListener.3.1.0\lib\net45\Microsoft.Owin.Host.HttpListener.dll</HintPath>
-    </Reference>
-    <Reference Include="Raven.Abstractions, Version=3.5.4.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
-      <HintPath>..\packages\RavenDB.Client.3.5.4\lib\net45\Raven.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Raven.Client.Lightweight, Version=3.5.4.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
-      <HintPath>..\packages\RavenDB.Client.3.5.4\lib\net45\Raven.Client.Lightweight.dll</HintPath>
+    <Reference Include="Jobbr.Server">
+      <HintPath>C:\Users\lukas\.nuget\packages\jobbr.server\1.4.0\lib\net462\Jobbr.Server.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -88,19 +55,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyExtension.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Jobbr.ArtefactStorage.FileSystem" Version="1.0.1" />
+    <PackageReference Include="Jobbr.ComponentModel.ArtefactStorage" Version="1.0.1" />
+    <PackageReference Include="Jobbr.ComponentModel.Execution" Version="1.0.1" />
+    <PackageReference Include="Jobbr.ComponentModel.JobStorage" Version="1.4.0" />
+    <PackageReference Include="Jobbr.ComponentModel.Management" Version="1.6.0" />
+    <PackageReference Include="Jobbr.ComponentModel.Registration" Version="1.0.1" />
+    <PackageReference Include="Jobbr.Dashboard" Version="1.2.0" />
+    <PackageReference Include="Jobbr.Execution.Forked" Version="1.1.1" />
+    <PackageReference Include="Jobbr.Server" Version="1.6.0" />
+    <PackageReference Include="Jobbr.Server.WebAPI" Version="1.6.1" />
+    <PackageReference Include="Jobbr.Storage.MsSql" Version="3.0.0-rc.1" />
+    <PackageReference Include="Microsoft.Owin.Host.HttpListener" Version="3.1.0" />
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="ServiceStack.Common" Version="5.2.0" />
+    <PackageReference Include="ServiceStack.Interfaces" Version="5.2.0" />
+    <PackageReference Include="ServiceStack.OrmLite" Version="5.2.0" />
+    <PackageReference Include="ServiceStack.OrmLite.SqlServer" Version="5.2.0" />
+    <PackageReference Include="ServiceStack.Text" Version="5.2.0" />
+    <PackageReference Include="System.Buffers" Version="4.4.0" />
+    <PackageReference Include="System.Memory" Version="4.5.1" />
+    <PackageReference Include="System.Numerics.Vectors" Version="4.4.0" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="4.5.0" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Demo.MyJobs</RootNamespace>
     <AssemblyName>Demo.MyJobs</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="JobWithArtefacts.cs" />
-    <Compile Include="ParameterizedlJob.cs" />
+    <Compile Include="ParameterizedJob.cs" />
     <Compile Include="ProgressJob.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
