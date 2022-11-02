@@ -66,15 +66,18 @@
     <PackageReference Include="Jobbr.ArtefactStorage.FileSystem" Version="1.0.1" />
     <PackageReference Include="Jobbr.ComponentModel.ArtefactStorage" Version="1.0.1" />
     <PackageReference Include="Jobbr.ComponentModel.Execution" Version="1.0.1" />
-    <PackageReference Include="Jobbr.ComponentModel.JobStorage" Version="1.3.0" />
-    <PackageReference Include="Jobbr.ComponentModel.Management" Version="1.5.0" />
+    <PackageReference Include="Jobbr.ComponentModel.JobStorage" Version="1.4.0" />
+    <PackageReference Include="Jobbr.ComponentModel.Management" Version="1.6.0" />
     <PackageReference Include="Jobbr.ComponentModel.Registration" Version="1.0.1" />
     <PackageReference Include="Jobbr.Dashboard" Version="1.2.0" />
     <PackageReference Include="Jobbr.Execution.Forked" Version="1.1.1" />
-    <PackageReference Include="Jobbr.Server" Version="1.4.2" />
+    <PackageReference Include="Jobbr.Server" Version="1.6.0" />
     <PackageReference Include="Jobbr.Server.WebAPI" Version="1.6.1" />
-    <PackageReference Include="Jobbr.Storage.MsSql" Version="2.2.1" />
+    <PackageReference Include="Jobbr.Storage.MsSql" Version="3.0.0-rc.1" />
     <PackageReference Include="Microsoft.Owin.Host.HttpListener" Version="3.1.0" />
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.1</Version>
+    </PackageReference>
     <PackageReference Include="ServiceStack.Common" Version="5.2.0" />
     <PackageReference Include="ServiceStack.Interfaces" Version="5.2.0" />
     <PackageReference Include="ServiceStack.OrmLite" Version="5.2.0" />

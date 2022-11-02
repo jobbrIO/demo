@@ -7,7 +7,7 @@ This repository contains a sample setup of Jobbr to get you started.
 # Quick Start
 
 - Clone this repo
-- Create the necessary database tables with the [CreateTables.sql](https://github.com/jobbrIO/jobbr-storage-mssql/blob/master/source/Jobbr.Storage.MsSql/CreateTables.sql) script
+- Create the database JobbrDemo
 - Double check the SQL Server connection is set correctly
 - Build & run Demo.JobServer
 

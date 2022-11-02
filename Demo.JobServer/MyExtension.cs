@@ -7,12 +7,11 @@ namespace Demo.JobServer
     {
         public static MyExtension Instance;
 
-        private readonly IJobbrServiceProvider serviceProvider;
-        private readonly IJobManagementService jobManagementService;
-        private readonly IQueryService queryService;
+        private readonly IJobbrServiceProvider _serviceProvider;
+        private readonly IJobManagementService _jobManagementService;
+        private readonly IQueryService _queryService;
 
-
-        public IJobManagementService JobManagementService => jobManagementService;
+        public IJobManagementService JobManagementService => _jobManagementService;
 
         public MyExtension(IJobbrServiceProvider serviceProvider, IJobManagementService jobManagementService, IQueryService queryService)
         {
@@ -20,9 +19,9 @@ namespace Demo.JobServer
 
             // you can request basically anything that is available in the JobbrDI. The list of available types are 
             // defined in the corresponding component models available on http://github.com/jobbrIO
-            this.serviceProvider = serviceProvider;
-            this.jobManagementService = jobManagementService;
-            this.queryService = queryService;
+            this._serviceProvider = serviceProvider;
+            this._jobManagementService = jobManagementService;
+            this._queryService = queryService;
         }
 
         public void Dispose() { }

@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="JobWithArtefacts.cs" />
-    <Compile Include="ParameterizedlJob.cs" />
+    <Compile Include="ParameterizedJob.cs" />
     <Compile Include="ProgressJob.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

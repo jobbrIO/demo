@@ -2,7 +2,7 @@
 
 namespace Demo.MyJobs
 {
-    public class ParameterizedlJob
+    public class ParameterizedJob
     {
         public void Run(object jobParameters, RunParameter runParameters)
         {
