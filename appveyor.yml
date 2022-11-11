@@ -9,6 +9,9 @@ branches:
     - /feature/.*/
     - /bugfix/.*/
 
+environment:
+  IGNORE_NORMALISATION_GIT_HEAD_MOVE: 1
+
 install:
   - choco install gitversion.portable --version 5.10.3 -y
 
