@@ -13,21 +13,10 @@
     <PackageReference Include="Jobbr.Execution.Forked" Version="1.1.1" />
     <PackageReference Include="Jobbr.Server" Version="1.6.0" />
     <PackageReference Include="Jobbr.Storage.MsSql" Version="3.0.0-rc.1" />
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-    <PackageReference Include="Microsoft.Owin.Host.HttpListener" Version="4.2.2" />
-    <PackageReference Include="Newtonsoft.Json">
-      <Version>13.0.1</Version>
-    </PackageReference>
-    <PackageReference Include="ServiceStack.OrmLite.SqlServer" Version="5.4.0" />
-    <PackageReference Include="System.ComponentModel.Composition" Version="7.0.0" />
-    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
-    <PackageReference Include="System.Memory" Version="4.5.5" />
-    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.4.355802">
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
     <PackageReference Include="Jobbr.ComponentModel.ArtefactStorage" Version="1.1.1" />
     <PackageReference Include="Jobbr.ComponentModel.Execution" Version="1.1.1" />
     <PackageReference Include="Jobbr.ComponentModel.Registration" Version="1.0.3" />
     <PackageReference Include="Jobbr.Server.WebAPI" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Owin.Host.HttpListener" Version="4.0.0" />
   </ItemGroup>
 </Project>
