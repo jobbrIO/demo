@@ -9,6 +9,10 @@ using Jobbr.Server.ForkedExecution;
 using Jobbr.Server.JobRegistry;
 using Jobbr.Server.WebAPI;
 using Jobbr.Storage.MsSql;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 
 namespace Demo.JobServer
 {
@@ -24,7 +28,10 @@ namespace Demo.JobServer
                 Directory.CreateDirectory(jobRunDirectory);
             }
 
-            var jobbrBuilder = new JobbrBuilder();
+            var app = CreateHostBuilder(args).Build();
+            var loggerFactory = app.Services.GetService<ILoggerFactory>();
+
+            var jobbrBuilder = new JobbrBuilder(loggerFactory);
 
             jobbrBuilder.AddFileSystemArtefactStorage(config =>
             {
@@ -43,7 +50,7 @@ namespace Demo.JobServer
 
             // Setup an initial set of jobs with a unique name and the corresponding CLR Type.
             // Note: The Server does not reference the assembly containing the type since the Runner (see above) will activate and execute the job
-            jobbrBuilder.AddJobs(repo =>
+            jobbrBuilder.AddJobs(new NullLoggerFactory(), repo =>
             {
                 repo.Define("ProgressJob", "Demo.MyJobs.ProgressJob")
                     .WithTrigger("* * * * *");
@@ -91,7 +98,8 @@ namespace Demo.JobServer
             {
                 server.Start(20000);
 
-                Process.Start(baseUrl);
+                // Process.Start(baseUrl);
+                Process.Start(new ProcessStartInfo { FileName = jobRunDirectory, UseShellExecute = true }); // TODO: correct?
 
                 // Trigger a new Job from here. How-ever this does not make sense usually... 
                 // Better approach would be to use the Client Libraries to access the WebAPI
@@ -102,5 +110,13 @@ namespace Demo.JobServer
                 server.Stop();
             }
         }
+
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureLogging(logging =>
+                {
+                    logging.ClearProviders();
+                    logging.AddConsole();
+                });
     }
 }
