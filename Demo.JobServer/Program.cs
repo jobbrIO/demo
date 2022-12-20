@@ -1,7 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using Jobbr.ArtefactStorage.FileSystem;
+﻿using Jobbr.ArtefactStorage.FileSystem;
 using Jobbr.ComponentModel.Registration;
 // using Jobbr.Dashboard;
 using Jobbr.Server.Builder;
@@ -13,6 +10,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
+using System;
+using System.Diagnostics;
+using System.IO;
 
 namespace Demo.JobServer
 {
@@ -72,7 +72,7 @@ namespace Demo.JobServer
             // Uncomment to use sql server as storage
             jobbrBuilder.AddMsSqlStorage(c =>
             {
-                c.ConnectionString = @"Data Source=localhost\MSSQLSERVER01;Initial Catalog=JobbrDemo;Connect Timeout=10;Integrated Security=True";
+                c.ConnectionString = @"Data Source=localhost\SQLExpress;Initial Catalog=JobbrDemo;Connect Timeout=10;Integrated Security=True";
                 c.CreateTablesIfNotExists = true;
             });
 
