@@ -5,6 +5,6 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Jobbr.Client" Version="3.0.0-rc.3" />
+    <PackageReference Include="Jobbr.Client" Version="3.0.0-rc.4" />
   </ItemGroup>
 </Project>

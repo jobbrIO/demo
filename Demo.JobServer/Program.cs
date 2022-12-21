@@ -9,7 +9,6 @@ using Jobbr.Storage.MsSql;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions;
 using System;
 using System.Diagnostics;
 using System.IO;
@@ -42,7 +41,7 @@ namespace Demo.JobServer
             jobbrBuilder.AddForkedExecution(config =>
                 {
                     config.JobRunDirectory = jobRunDirectory;
-                    config.JobRunnerExecutable = "../../../Demo.JobRunner/bin/Debug/Demo.JobRunner.exe";
+                    config.JobRunnerExecutable = "../../../../Demo.JobRunner/bin/Debug/net6.0/Demo.JobRunner.exe";
                     config.MaxConcurrentProcesses = 1;
                     config.IsRuntimeWaitingForDebugger = false;
                 }
@@ -50,7 +49,7 @@ namespace Demo.JobServer
 
             // Setup an initial set of jobs with a unique name and the corresponding CLR Type.
             // Note: The Server does not reference the assembly containing the type since the Runner (see above) will activate and execute the job
-            jobbrBuilder.AddJobs(new NullLoggerFactory(), repo =>
+            jobbrBuilder.AddJobs(loggerFactory, repo =>
             {
                 repo.Define("ProgressJob", "Demo.MyJobs.ProgressJob")
                     .WithTrigger("* * * * *");
