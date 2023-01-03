@@ -1,6 +1,6 @@
 ﻿using Jobbr.ArtefactStorage.FileSystem;
 using Jobbr.ComponentModel.Registration;
-// using Jobbr.Dashboard;
+using Jobbr.Dashboard;
 using Jobbr.Server.Builder;
 using Jobbr.Server.ForkedExecution;
 using Jobbr.Server.JobRegistry;
@@ -19,7 +19,7 @@ namespace Demo.JobServer
     {
         public static void Main(string[] args)
         {
-            const string baseUrl = "http://localhost:1338/";
+            const string baseUrl = "http://localhost";
             const string jobRunDirectory = "C:/temp";
 
             if (Directory.Exists(jobRunDirectory) == false)
@@ -61,7 +61,7 @@ namespace Demo.JobServer
             // Expose a Rest-API that is compatible with any browser and the Jobbr.Client
             jobbrBuilder.AddWebApi(config =>
             {
-                config.BackendAddress = $"{baseUrl}api";
+                config.BackendAddress = $"{baseUrl}:1338/api";
             });
 
             // Choose one of the following two storage providers (MsSQL or RavenDB). The Jobbr server will use
@@ -84,11 +84,11 @@ namespace Demo.JobServer
             //    config.Database = "Jobbr";
             //});
 
-            //jobbrBuilder.AddDashboard(config =>
-            //{
-            //    config.BackendAddress = $"{baseUrl}";
-            //    config.SoftDeleteJobRunOnRetry = true;
-            //});
+            jobbrBuilder.AddDashboard(config =>
+            {
+                config.BackendAddress = $"{baseUrl}:1339/";
+                config.SoftDeleteJobRunOnRetry = true;
+            });
 
             // Register your very own component that gets as JobbrComponent and can request specific implementations with constructor injection
             jobbrBuilder.Register<IJobbrComponent>(typeof(MyExtension));
@@ -97,7 +97,6 @@ namespace Demo.JobServer
             {
                 server.Start(20000);
 
-                // Process.Start(baseUrl);
                 Process.Start(new ProcessStartInfo { FileName = jobRunDirectory, UseShellExecute = true }); // TODO: correct?
 
                 // Trigger a new Job from here. How-ever this does not make sense usually... 
