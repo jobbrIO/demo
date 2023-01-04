@@ -97,7 +97,7 @@ namespace Demo.JobServer
             {
                 server.Start(20000);
 
-                Process.Start(new ProcessStartInfo { FileName = jobRunDirectory, UseShellExecute = true }); // TODO: correct?
+                Process.Start(new ProcessStartInfo($"{baseUrl}:1339/") { UseShellExecute = true });
 
                 // Trigger a new Job from here. How-ever this does not make sense usually... 
                 // Better approach would be to use the Client Libraries to access the WebAPI
