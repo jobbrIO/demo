@@ -19,9 +19,9 @@ namespace Demo.JobServer
 
             // you can request basically anything that is available in the JobbrDI. The list of available types are 
             // defined in the corresponding component models available on http://github.com/jobbrIO
-            this._serviceProvider = serviceProvider;
-            this._jobManagementService = jobManagementService;
-            this._queryService = queryService;
+            _serviceProvider = serviceProvider;
+            _jobManagementService = jobManagementService;
+            _queryService = queryService;
         }
 
         public void Dispose() { }
