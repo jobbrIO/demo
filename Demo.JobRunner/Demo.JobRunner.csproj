@@ -10,8 +10,7 @@
       <ProjectReference Include="..\Demo.MyJobs\Demo.MyJobs.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="CommandLineParser" Version="2.9.1" />
-    <PackageReference Include="Jobbr.Runtime.ForkedExecution" Version="3.0.0-rc.6" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0" />
+    <PackageReference Include="Jobbr.Runtime.ForkedExecution" Version="3.0.0-rc.8" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
   </ItemGroup>
 </Project>

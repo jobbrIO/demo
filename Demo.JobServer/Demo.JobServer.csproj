@@ -11,19 +11,19 @@
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Jobbr.ArtefactStorage.FileSystem" Version="3.0.0-rc.2" />
+    <PackageReference Include="Jobbr.ArtefactStorage.FileSystem" Version="3.0.0-rc.3" />
     <PackageReference Include="Jobbr.ComponentModel.JobStorage" Version="3.0.0-rc.2" />
     <PackageReference Include="Jobbr.ComponentModel.Management" Version="3.0.0-rc.1" />
-    <PackageReference Include="Jobbr.Dashboard" Version="3.0.0-rc.4" />
-    <PackageReference Include="Jobbr.Execution.Forked" Version="3.0.0-rc.6" />
-    <PackageReference Include="Jobbr.Server" Version="3.0.0-rc.7" />
-    <PackageReference Include="Jobbr.Storage.MsSql" Version="3.0.0-rc.5" />
+    <PackageReference Include="Jobbr.Dashboard" Version="3.0.0-rc.10" />
+    <PackageReference Include="Jobbr.Execution.Forked" Version="3.0.0-rc.8" />
+    <PackageReference Include="Jobbr.Server" Version="3.0.0-rc.9" />
+    <PackageReference Include="Jobbr.Storage.MsSql" Version="3.0.0-rc.8" />
     <PackageReference Include="Jobbr.ComponentModel.ArtefactStorage" Version="3.0.0-rc.1" />
     <PackageReference Include="Jobbr.ComponentModel.Execution" Version="3.0.0-rc.1" />
     <PackageReference Include="Jobbr.ComponentModel.Registration" Version="3.0.0-rc.2" />
-    <PackageReference Include="Jobbr.Server.WebAPI" Version="3.0.0-rc.6" />
-    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="7.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
+    <PackageReference Include="Jobbr.Server.WebAPI" Version="3.0.0-rc.8" />
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="6.0.15" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
   </ItemGroup>
 </Project>
