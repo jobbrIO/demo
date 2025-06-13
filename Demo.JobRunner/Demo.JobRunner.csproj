@@ -10,7 +10,7 @@
       <ProjectReference Include="..\Demo.MyJobs\Demo.MyJobs.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Jobbr.Runtime.ForkedExecution" Version="3.0.0-rc.8" />
+    <PackageReference Include="Jobbr.Runtime.ForkedExecution" Version="3.0.4" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
   </ItemGroup>
 </Project>

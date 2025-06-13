@@ -5,7 +5,7 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Jobbr.Client" Version="3.0.0-rc.8" />
-    <PackageReference Include="System.Text.Json" Version="6.0.7" />
+    <PackageReference Include="Jobbr.Client" Version="3.0.5" />
+    <PackageReference Include="System.Text.Json" Version="6.0.11" />
   </ItemGroup>
 </Project>
