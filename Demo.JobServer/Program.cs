@@ -1,7 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using Jobbr.ArtefactStorage.FileSystem;
+﻿using Jobbr.ArtefactStorage.FileSystem;
 using Jobbr.ComponentModel.Registration;
 using Jobbr.Dashboard;
 using Jobbr.Server.Builder;
@@ -9,6 +6,12 @@ using Jobbr.Server.ForkedExecution;
 using Jobbr.Server.JobRegistry;
 using Jobbr.Server.WebAPI;
 using Jobbr.Storage.MsSql;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Diagnostics;
+using System.IO;
 
 namespace Demo.JobServer
 {
@@ -16,7 +19,7 @@ namespace Demo.JobServer
     {
         public static void Main(string[] args)
         {
-            const string baseUrl = "http://localhost:1338/";
+            const string baseUrl = "http://localhost";
             const string jobRunDirectory = "C:/temp";
 
             if (Directory.Exists(jobRunDirectory) == false)
@@ -24,7 +27,10 @@ namespace Demo.JobServer
                 Directory.CreateDirectory(jobRunDirectory);
             }
 
-            var jobbrBuilder = new JobbrBuilder();
+            var app = CreateHostBuilder(args).Build();
+            var loggerFactory = app.Services.GetService<ILoggerFactory>();
+
+            var jobbrBuilder = new JobbrBuilder(loggerFactory);
 
             jobbrBuilder.AddFileSystemArtefactStorage(config =>
             {
@@ -35,7 +41,7 @@ namespace Demo.JobServer
             jobbrBuilder.AddForkedExecution(config =>
                 {
                     config.JobRunDirectory = jobRunDirectory;
-                    config.JobRunnerExecutable = "../../../Demo.JobRunner/bin/Debug/Demo.JobRunner.exe";
+                    config.JobRunnerExecutable = "../../../../Demo.JobRunner/bin/Debug/net6.0/Demo.JobRunner.exe";
                     config.MaxConcurrentProcesses = 1;
                     config.IsRuntimeWaitingForDebugger = false;
                 }
@@ -43,7 +49,7 @@ namespace Demo.JobServer
 
             // Setup an initial set of jobs with a unique name and the corresponding CLR Type.
             // Note: The Server does not reference the assembly containing the type since the Runner (see above) will activate and execute the job
-            jobbrBuilder.AddJobs(repo =>
+            jobbrBuilder.AddJobs(loggerFactory, repo =>
             {
                 repo.Define("ProgressJob", "Demo.MyJobs.ProgressJob")
                     .WithTrigger("* * * * *");
@@ -55,7 +61,7 @@ namespace Demo.JobServer
             // Expose a Rest-API that is compatible with any browser and the Jobbr.Client
             jobbrBuilder.AddWebApi(config =>
             {
-                config.BackendAddress = $"{baseUrl}api";
+                config.BackendAddress = $"{baseUrl}:1338/api";
             });
 
             // Choose one of the following two storage providers (MsSQL or RavenDB). The Jobbr server will use
@@ -80,7 +86,7 @@ namespace Demo.JobServer
 
             jobbrBuilder.AddDashboard(config =>
             {
-                config.BackendAddress = $"{baseUrl}";
+                config.BackendAddress = $"{baseUrl}:1339/";
                 config.SoftDeleteJobRunOnRetry = true;
             });
 
@@ -91,7 +97,7 @@ namespace Demo.JobServer
             {
                 server.Start(20000);
 
-                Process.Start(baseUrl);
+                Process.Start(new ProcessStartInfo($"{baseUrl}:1339/") { UseShellExecute = true });
 
                 // Trigger a new Job from here. How-ever this does not make sense usually... 
                 // Better approach would be to use the Client Libraries to access the WebAPI
@@ -102,5 +108,13 @@ namespace Demo.JobServer
                 server.Stop();
             }
         }
+
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureLogging(logging =>
+                {
+                    logging.ClearProviders();
+                    logging.AddConsole();
+                });
     }
 }

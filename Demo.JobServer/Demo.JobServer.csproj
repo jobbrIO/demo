@@ -1,92 +1,27 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{344C608D-CDE6-4E13-973E-B517EB66596B}</ProjectGuid>
+    <TargetFramework>net6.0</TargetFramework>
     <OutputType>Exe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Demo.JobServer</RootNamespace>
-    <AssemblyName>Demo.JobServer</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>Demo.JobServer.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Jobbr.Server">
-      <HintPath>C:\Users\lukas\.nuget\packages\jobbr.server\1.4.0\lib\net462\Jobbr.Server.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyExtension.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <PackageReference Include="Jobbr.ArtefactStorage.FileSystem" Version="3.0.0-rc.3" />
+    <PackageReference Include="Jobbr.ComponentModel.JobStorage" Version="3.0.0-rc.2" />
+    <PackageReference Include="Jobbr.ComponentModel.Management" Version="3.0.0-rc.1" />
+    <PackageReference Include="Jobbr.Dashboard" Version="3.0.0-rc.11" />
+    <PackageReference Include="Jobbr.Execution.Forked" Version="3.0.0-rc.8" />
+    <PackageReference Include="Jobbr.Server" Version="3.0.0-rc.12" />
+    <PackageReference Include="Jobbr.Storage.MsSql" Version="3.0.0-rc.8" />
+    <PackageReference Include="Jobbr.ComponentModel.ArtefactStorage" Version="3.0.0-rc.1" />
+    <PackageReference Include="Jobbr.ComponentModel.Execution" Version="3.0.0-rc.1" />
+    <PackageReference Include="Jobbr.ComponentModel.Registration" Version="3.0.0-rc.2" />
+    <PackageReference Include="Jobbr.Server.WebAPI" Version="3.0.0-rc.8" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Jobbr.ArtefactStorage.FileSystem" Version="1.0.1" />
-    <PackageReference Include="Jobbr.ComponentModel.ArtefactStorage" Version="1.0.1" />
-    <PackageReference Include="Jobbr.ComponentModel.Execution" Version="1.0.1" />
-    <PackageReference Include="Jobbr.ComponentModel.JobStorage" Version="1.4.0" />
-    <PackageReference Include="Jobbr.ComponentModel.Management" Version="1.6.0" />
-    <PackageReference Include="Jobbr.ComponentModel.Registration" Version="1.0.1" />
-    <PackageReference Include="Jobbr.Dashboard" Version="1.2.0" />
-    <PackageReference Include="Jobbr.Execution.Forked" Version="1.1.1" />
-    <PackageReference Include="Jobbr.Server" Version="1.6.0" />
-    <PackageReference Include="Jobbr.Server.WebAPI" Version="1.6.1" />
-    <PackageReference Include="Jobbr.Storage.MsSql" Version="3.0.0-rc.1" />
-    <PackageReference Include="Microsoft.Owin.Host.HttpListener" Version="3.1.0" />
-    <PackageReference Include="Newtonsoft.Json">
-      <Version>13.0.1</Version>
-    </PackageReference>
-    <PackageReference Include="ServiceStack.Common" Version="5.2.0" />
-    <PackageReference Include="ServiceStack.Interfaces" Version="5.2.0" />
-    <PackageReference Include="ServiceStack.OrmLite" Version="5.2.0" />
-    <PackageReference Include="ServiceStack.OrmLite.SqlServer" Version="5.2.0" />
-    <PackageReference Include="ServiceStack.Text" Version="5.2.0" />
-    <PackageReference Include="System.Buffers" Version="4.4.0" />
-    <PackageReference Include="System.Memory" Version="4.5.1" />
-    <PackageReference Include="System.Numerics.Vectors" Version="4.4.0" />
-    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="4.5.0" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

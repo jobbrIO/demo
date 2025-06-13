@@ -1,6 +1,6 @@
 # Jobbr Demo
 
-[![AppVeyor branch](https://img.shields.io/appveyor/ci/jobbr/jobbr-demo/develop.svg)]()
+[![AppVeyor branch](https://img.shields.io/appveyor/build/jobbr/jobbr-demo/develop.svg?label=develop)](https://ci.appveyor.com/project/Jobbr/jobbr-demo)
 
 This repository contains a sample setup of Jobbr to get you started.
 
