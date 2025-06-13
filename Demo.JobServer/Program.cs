@@ -71,7 +71,7 @@ namespace Demo.JobServer
             // Uncomment to use sql server as storage
             jobbrBuilder.AddMsSqlStorage(c =>
             {
-                c.ConnectionString = @"Data Source=localhost\SQLExpress;Initial Catalog=JobbrDemo;Connect Timeout=10;Integrated Security=True";
+                c.ConnectionString = @"Data Source=localhost;Initial Catalog=JobbrDemo;Connect Timeout=10;Integrated Security=True";
                 c.CreateTablesIfNotExists = true;
             });
 
