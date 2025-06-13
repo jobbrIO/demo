@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <PropertyGroup>
@@ -21,7 +21,7 @@
     <PackageReference Include="Jobbr.ComponentModel.Execution" Version="3.0.1" />
     <PackageReference Include="Jobbr.ComponentModel.Registration" Version="3.0.1" />
     <PackageReference Include="Jobbr.Server.WebAPI" Version="3.0.7" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.1" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.1" />
   </ItemGroup>
 </Project>
